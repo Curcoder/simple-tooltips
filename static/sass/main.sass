@@ -1,0 +1,36 @@
+@import compass/reset
+
+body
+	background-color: #ccc
+	font-size: 1.5rem
+	padding: 100px
+
+span
+	display: inline-block
+	color: #06c
+
+[data-tooltip]
+	position: relative
+	cursor: pointer
+	&::after
+		position: absolute
+		width: 200px
+		bottom: 125%
+		text-align: center
+		background-color: #070
+		padding: 10px
+		border-radius: 5px
+		color: #fff
+		box-shadow: 3px 3px 2px #666
+		box-sizing: border-box
+		font: normal 1rem 'Helvetica'
+		left: calc(50% - 100px)
+		content: attr(data-tooltip)
+		visibility: hidden
+		opacity: 0
+		transform: translateY(10px)
+		transition: opacity .3s, transform .2s
+	&:hover::after
+		opacity: 1
+		visibility: visible
+		transform: translateY(0)
